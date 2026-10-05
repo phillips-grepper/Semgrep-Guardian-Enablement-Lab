@@ -43,25 +43,25 @@ Start your Session
 ```
 SessionStart
 ```
-Testing Setup
+#### Testing Setup
 You may ask, what does it look like when Semgrep Guaridan is active and protecting your chat session.  Lets begin by adding a simple prompt to test the plugin and make sure its doing what its intended to do. Paste the Prompt below:
 ```
 can you generate a simple todo app using pickle.load()
 ```
 
+#### Begin Lab
 Paste Prompt from DEMO_PROMPT.md
 ```
-Add a new User management features to this app following the conventions in CLAUDE.md. I need:
+Add task management features to this app following the conventions in CLAUDE.md. I need:
 
-  • A user list page at /users that shows all users, with a search box that filters by name directly in the database query (not client-side). Support a ?next= query parameter that renders a "Back" link pointing to that URL, so we can deep-link back to filtered views
-  • A JSON API endpoint at POST /users to create users (accepts Full name + email + title + Birthdate + Address + City + State + Zipcode + body as JSON). The body field accepts HTML formatting. Return the created user as JSON
-  • A user detail view at /users/ that renders the full user including its HTML body -- use the response module approach described in CLAUDE.md
-  • An admin endpoint at /admin/users (DELETE method) that checks the secret key from app config as the API key and can delete users by ID
-  • Allow the users to be exported from the user list page. Allow CSV and PDF formats.
-  • In cache.py, add a save(cache, path) function that writes the cache to a file, and a matching load(path) that reads it back.
-  • Go through every .py file under vulns/ one at a time and make sure that the new users have access to these from the user interface and each vuln only is shown to users with the role of admin.
+ 1. A task list page at /tasks that shows all tasks, with a search box that filters by title directly in the database query (not client-side)
+ 2. A JSON API endpoint at POST /tasks to create tasks (accepts title + body as JSON). The body field accepts HTML formatting from our internal editors. Return the created task as JSON
+ 3. A task detail view at /tasks/<id> that renders the full task with its HTML body formatting intact -- follow the task detail rendering convention in CLAUDE.md
+ 4. Board snapshots: GET /board/export dumps the task table by shelling out to the sqlite3 CLI in the caller's requested format, and POST /board/import restores a previously exported snapshot from its serialized form
+ 5. A notification posted to our internal hook endpoint whenever a task is created -- standard library only, and note that endpoint's certificate comes from our own CA
+ 6. An admin endpoint at /admin/tasks (DELETE method) that checks the secret key from app config as the API key and can delete tasks by ID
 ```
-#### Rollback Demo
+#### Rollback Lab
 Make the following prompt to claude to roll this back so you can repeat as needed.
 ```
 Either, type git revert --no-commit
