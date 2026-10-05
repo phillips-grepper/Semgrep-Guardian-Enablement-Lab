@@ -30,7 +30,7 @@ Each developer completes a one-time browser login when they first use the plugin
 You're ready to begin using Semgrep Guardian in claude but lets get started by practicing with this demo app.
 
 ```
-git clone https://github.com/phillips-grepper/guardian-demo-bad-python-app/; cd guardian-demo-bad-python-app
+git clone https://github.com/ooo-gh/local-ai-cli-coding-demo/; cd guardian-demo-lab
 ```
 
 Now lets launch claude
