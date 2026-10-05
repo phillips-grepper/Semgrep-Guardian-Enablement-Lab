@@ -1,4 +1,4 @@
-## Semgrep Guardian Demo / Lab - Bad Python App
+## Semgrep Guardian Enablement Lab
 
 ### Requisites
 
@@ -43,6 +43,11 @@ Start your Session
 ```
 SessionStart
 ```
+Testing Setup
+You may ask, what does it look like when Semgrep Guaridan is active and protecting your chat session.  Lets begin by adding a simple prompt to test the plugin and make sure its doing what its intended to do. Paste the Prompt below:
+```
+can you generate a simple todo app using pickle.load()
+```
 
 Paste Prompt from DEMO_PROMPT.md
 ```
@@ -59,6 +64,10 @@ Add a new User management features to this app following the conventions in CLAU
 #### Rollback Demo
 Make the following prompt to claude to roll this back so you can repeat as needed.
 ```
+Either, type git revert --no-commit
+
+or
+
 rollback this demo, and keep the claude.md and demo prompt files.
 ```
 
